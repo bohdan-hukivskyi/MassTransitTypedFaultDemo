@@ -1,0 +1,281 @@
+[testcontainers.org 00:00:00.18] Connected to Docker:
+  Host: npipe://./pipe/docker_engine
+  Server Version: 27.0.3
+  Kernel Version: 5.15.153.1-microsoft-standard-WSL2
+  API Version: 1.46
+  Operating System: Docker Desktop
+  Total Memory: 15.51 GB
+  Labels:
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+
+[testcontainers.org 00:00:00.41] Docker container 9e3d0bd6a298 created
+[testcontainers.org 00:00:00.44] Start Docker container 9e3d0bd6a298
+[testcontainers.org 00:00:01.81] Wait for Docker container 9e3d0bd6a298 to complete readiness checks
+[testcontainers.org 00:00:01.81] Docker container 9e3d0bd6a298 ready
+[testcontainers.org 00:00:01.95] Docker container e5164cba0c9f created
+[testcontainers.org 00:00:01.96] Start Docker container e5164cba0c9f
+[testcontainers.org 00:00:03.46] Wait for Docker container e5164cba0c9f to complete readiness checks
+[testcontainers.org 00:00:07.59] Docker container e5164cba0c9f ready
+[testcontainers.org 00:00:07.69] Docker container 84ce9e2ba3ca created
+[testcontainers.org 00:00:07.70] Start Docker container 84ce9e2ba3ca
+[testcontainers.org 00:00:09.18] Wait for Docker container 84ce9e2ba3ca to complete readiness checks
+[testcontainers.org 00:00:09.19] Execute "/bin/sh -c find /opt/mssql-tools*/bin/sqlcmd -type f -print -quit" at Docker c
+[testcontainers.org 00:00:09.23] Execute "/opt/mssql-tools/bin/sqlcmd -C -Q SELECT 1;" at Docker container 84ce9e2ba3ca
+[testcontainers.org 00:00:13.77] Docker container 84ce9e2ba3ca ready
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20241019110755_Initial'.
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20241019114124_AddEfMtOutbox'.
+info: MassTransit[0]
+      Configured endpoint TestMessage, Consumer: TypedFaultDemo.TestMessageConsumer
+info: MassTransit[0]
+      Configured endpoint TestFaultTypedMessage, Consumer: TypedFaultDemo.TestFaultTypedMessageConsumer
+info: MassTransit[0]
+      Configured endpoint TestFaultNotTypedMessage, Consumer: TypedFaultDemo.TestFaultNotTypedMessageConsumer
+dbug: MassTransit.Transports.BusDepot[0]
+      Starting bus instances: IBus
+dbug: MassTransit[0]
+      Starting bus: rabbitmq://127.0.0.1:54766/
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\bohdan\source\repos\TypedFaultDemo
+dbug: MassTransit[0]
+      Connect: rabbitmq@127.0.0.1:54766/
+dbug: MassTransit[0]
+      Connected: rabbitmq@127.0.0.1:54766/ (address: amqp://127.0.0.1:54766, local: 54784)
+dbug: MassTransit[0]
+      Endpoint Ready: rabbitmq://127.0.0.1:54766/BOHDANPCPL_TypedFaultDemo_bus_fnuyyyr48oyykj18bdqxyqu786?temporary=true
+dbug: MassTransit[0]
+      Declare queue: name: TestMessage, durable, consumer-count: 0 message-count: 0
+dbug: MassTransit[0]
+      Declare queue: name: TestFaultTypedMessage, durable, consumer-count: 0 message-count: 0
+dbug: MassTransit[0]
+      Declare queue: name: TestFaultNotTypedMessage, durable, consumer-count: 0 message-count: 0
+dbug: MassTransit[0]
+      Declare exchange: name: TestFaultNotTypedMessage, type: fanout, durable
+dbug: MassTransit[0]
+      Declare exchange: name: TestFaultTypedMessage, type: fanout, durable
+dbug: MassTransit[0]
+      Declare exchange: name: TestMessage, type: fanout, durable
+dbug: MassTransit[0]
+      Declare exchange: name: TypedFaultDemo:TestMessage, type: fanout, durable
+dbug: MassTransit[0]
+      Declare exchange: name: MassTransit:Fault, type: fanout, durable
+dbug: MassTransit[0]
+      Declare exchange: name: MassTransit:Fault--TypedFaultDemo:TestMessage--, type: fanout, durable
+dbug: MassTransit[0]
+      Bind queue: source: TestMessage, destination: TestMessage
+dbug: MassTransit[0]
+      Bind queue: source: TestFaultNotTypedMessage, destination: TestFaultNotTypedMessage
+dbug: MassTransit[0]
+      Bind queue: source: TestFaultTypedMessage, destination: TestFaultTypedMessage
+dbug: MassTransit[0]
+      Bind exchange: source: MassTransit:Fault--TypedFaultDemo:TestMessage--, destination: TestFaultTypedMessage
+dbug: MassTransit[0]
+      Bind exchange: source: TypedFaultDemo:TestMessage, destination: TestMessage
+dbug: MassTransit[0]
+      Bind exchange: source: MassTransit:Fault, destination: TestFaultNotTypedMessage
+dbug: MassTransit.ReceiveTransport[0]
+      Consumer Ok: rabbitmq://127.0.0.1:54766/TestFaultTypedMessage - amq.ctag-TIOGZWN8Tt-shrOcP58KfQ
+dbug: MassTransit.ReceiveTransport[0]
+      Consumer Ok: rabbitmq://127.0.0.1:54766/TestMessage - amq.ctag--QI86XahUOqNOY7UQGjPig
+dbug: MassTransit.ReceiveTransport[0]
+      Consumer Ok: rabbitmq://127.0.0.1:54766/TestFaultNotTypedMessage - amq.ctag-Zm31RGI8t6Qavyb0rsUi2g
+dbug: MassTransit[0]
+      Endpoint Ready: rabbitmq://127.0.0.1:54766/TestFaultNotTypedMessage
+dbug: MassTransit[0]
+      Endpoint Ready: rabbitmq://127.0.0.1:54766/TestFaultTypedMessage
+dbug: MassTransit[0]
+      Endpoint Ready: rabbitmq://127.0.0.1:54766/TestMessage
+info: MassTransit[0]
+      Bus started: rabbitmq://127.0.0.1:54766/
+info: Program[0]
+      Publish correct message
+dbug: MassTransit[0]
+      Declare exchange: name: TypedFaultDemo:TestMessage, type: fanout, durable
+dbug: MassTransit.Messages[0]
+      SEND rabbitmq://127.0.0.1:54766/TypedFaultDemo:TestMessage 28a60000-9a3c-0005-c6c2-08dcf03a7fdd TypedFaultDemo.Tes
+dbug: MassTransit.Messages[0]
+      RECEIVE rabbitmq://127.0.0.1:54766/TestMessage 28a60000-9a3c-0005-c6c2-08dcf03a7fdd TypedFaultDemo.TestMessage Typ
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Consumed: 28a60000-9a3c-0005-c6c2-08dcf03a7fdd 10/19/2024 12:35:22
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Delivered: 28a60000-9a3c-0005-c6c2-08dcf03a7fdd 10/19/2024 12:35:22
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Completed: 28a60000-9a3c-0005-c6c2-08dcf03a7fdd (3)
+info: Program[0]
+      Publish message with in consumer error
+dbug: MassTransit.Messages[0]
+      SEND rabbitmq://127.0.0.1:54766/TypedFaultDemo:TestMessage 28a60000-9a3c-0005-d98f-08dcf03a811a TypedFaultDemo.Tes
+dbug: MassTransit.ReceiveTransport[0]
+      Declare exchange: name: MassTransit:Fault--TypedFaultDemo:TestMessage--, type: fanout, durable
+dbug: MassTransit.ReceiveTransport[0]
+      Declare exchange: name: MassTransit:Fault, type: fanout, durable
+dbug: MassTransit.ReceiveTransport[0]
+      Bind exchange: source: MassTransit:Fault--TypedFaultDemo:TestMessage--, destination: MassTransit:Fault
+dbug: MassTransit.Messages[0]
+      SEND rabbitmq://127.0.0.1:54766/MassTransit:Fault--TypedFaultDemo:TestMessage-- 28a60000-9a3c-0005-1eac-08dcf03a81
+fail: MassTransit.ReceiveTransport[0]
+      R-FAULT rabbitmq://127.0.0.1:54766/TestMessage 28a60000-9a3c-0005-d98f-08dcf03a811a TypedFaultDemo.TestMessage Typ
+      System.InvalidOperationException: Throw requested by messaged inside consumer
+         at TypedFaultDemo.TestMessageConsumer.Consume(ConsumeContext`1 context) in C:\Users\bohdan\source\repos\TypedFa
+         at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next
+         at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next
+         at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Sen
+info: TypedFaultDemo.TestFaultTypedMessageConsumer[0]
+      Consumed typed FAULT for id 69da5fce-ace6-4dc8-af46-068382a29dcc
+info: TypedFaultDemo.TestFaultNotTypedMessageConsumer[0]
+      Consumed NOTTYPED FAULT
+dbug: MassTransit.Messages[0]
+      RECEIVE rabbitmq://127.0.0.1:54766/TestFaultTypedMessage 28a60000-9a3c-0005-1eac-08dcf03a8143 MassTransit.Fault<Ty
+dbug: MassTransit.Messages[0]
+      RECEIVE rabbitmq://127.0.0.1:54766/TestFaultNotTypedMessage 28a60000-9a3c-0005-1eac-08dcf03a8143 MassTransit.Fault
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Consumed: 28a60000-9a3c-0005-1eac-08dcf03a8143 10/19/2024 12:35:24
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Consumed: 28a60000-9a3c-0005-1eac-08dcf03a8143 10/19/2024 12:35:24
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Delivered: 28a60000-9a3c-0005-1eac-08dcf03a8143 10/19/2024 12:35:25
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Delivered: 28a60000-9a3c-0005-1eac-08dcf03a8143 10/19/2024 12:35:25
+dbug: MassTransit.ReceiveTransport[0]
+      Declare queue: name: TestMessage_error, durable, consumer-count: 0 message-count: 0
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Completed: 28a60000-9a3c-0005-1eac-08dcf03a8143 (3)
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Completed: 28a60000-9a3c-0005-1eac-08dcf03a8143 (3)
+dbug: MassTransit.ReceiveTransport[0]
+      Declare exchange: name: TestMessage_error, type: fanout, durable
+dbug: MassTransit.ReceiveTransport[0]
+      Bind queue: source: TestMessage_error, destination: TestMessage_error
+info: Program[0]
+      Publish message with out consumer error (unique key violation)
+dbug: MassTransit.Messages[0]
+      SEND rabbitmq://127.0.0.1:54766/TypedFaultDemo:TestMessage 28a60000-9a3c-0005-ebf6-08dcf03a8252 TypedFaultDemo.Tes
+dbug: MassTransit.Messages[0]
+      RECEIVE rabbitmq://127.0.0.1:54766/TestMessage 28a60000-9a3c-0005-ebf6-08dcf03a8252 TypedFaultDemo.TestMessage Typ
+fail: Microsoft.EntityFrameworkCore.Update[10000]
+      An exception occurred in the database while saving changes for context type 'TypedFaultDemo.TestDbContext'.
+      Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner
+       ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_TestEntities'. C
+         at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wra
+         at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Acti
+         at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHas
+         at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader data
+         at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+         at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreResults(Boolean& moreResults)
+         at Microsoft.Data.SqlClient.SqlDataReader.TryNextResult(Boolean& more)
+         at Microsoft.Data.SqlClient.SqlDataReader.NextResultAsyncExecute(Task task, Object state)
+         at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+      --- End of stack trace from previous location ---
+         at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader
+      ClientConnectionId:e3669b95-07a2-4e0e-8b2a-21e0140755b2
+      Error Number:2627,State:1,Class:14
+         --- End of inner exception stack trace ---
+         at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection conne
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection conne
+         at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRela
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRela
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRela
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRela
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, C
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManage
+         at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TRes
+         at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToke
+      Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner
+       ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_TestEntities'. C
+         at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wra
+         at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Acti
+         at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHas
+         at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader data
+         at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+         at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreResults(Boolean& moreResults)
+         at Microsoft.Data.SqlClient.SqlDataReader.TryNextResult(Boolean& more)
+         at Microsoft.Data.SqlClient.SqlDataReader.NextResultAsyncExecute(Task task, Object state)
+         at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+      --- End of stack trace from previous location ---
+         at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader
+      ClientConnectionId:e3669b95-07a2-4e0e-8b2a-21e0140755b2
+      Error Number:2627,State:1,Class:14
+         --- End of inner exception stack trace ---
+         at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection conne
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection conne
+         at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRela
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRela
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRela
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRela
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, C
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManage
+         at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TRes
+         at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToke
+dbug: MassTransit.ReceiveTransport[0]
+      Declare exchange: name: MassTransit:ReceiveFault, type: fanout, durable
+dbug: MassTransit.ReceiveTransport[0]
+      Declare exchange: name: MassTransit:Fault, type: fanout, durable
+dbug: MassTransit.ReceiveTransport[0]
+      Bind exchange: source: MassTransit:ReceiveFault, destination: MassTransit:Fault
+dbug: MassTransit.Messages[0]
+      SEND rabbitmq://127.0.0.1:54766/MassTransit:ReceiveFault 28a60000-9a3c-0005-583a-08dcf03a8285 MassTransit.ReceiveF
+fail: MassTransit.ReceiveTransport[0]
+      R-FAULT rabbitmq://127.0.0.1:54766/TestMessage 28a60000-9a3c-0005-ebf6-08dcf03a8252 00:00:00.3826545
+      Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner
+       ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of PRIMARY KEY constraint 'PK_TestEntities'. C
+         at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wra
+         at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Acti
+         at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHas
+         at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader data
+         at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+         at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreResults(Boolean& moreResults)
+         at Microsoft.Data.SqlClient.SqlDataReader.TryNextResult(Boolean& more)
+         at Microsoft.Data.SqlClient.SqlDataReader.NextResultAsyncExecute(Task task, Object state)
+         at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+      --- End of stack trace from previous location ---
+         at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader
+      ClientConnectionId:e3669b95-07a2-4e0e-8b2a-21e0140755b2
+      Error Number:2627,State:1,Class:14
+         --- End of inner exception stack trace ---
+         at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection conne
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection conne
+         at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRela
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRela
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRela
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRela
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, C
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManage
+         at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TRes
+         at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToke
+         at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToke
+         at MassTransit.EntityFrameworkCoreIntegration.DbContextOutboxConsumeContext`2.SetConsumed() in /_/src/Persisten
+         at MassTransit.Middleware.OutboxMessagePipe`1.Send(OutboxConsumeContext`1 context) in /_/src/MassTransit/Middle
+         at MassTransit.EntityFrameworkCoreIntegration.EntityFrameworkOutboxContextFactory`1.<>c__DisplayClass6_0`1.<<Se
+      --- End of stack trace from previous location ---
+         at MassTransit.EntityFrameworkCoreIntegration.EntityFrameworkOutboxContextFactory`1.<>c__DisplayClass6_0`1.<<Se
+      --- End of stack trace from previous location ---
+         at MassTransit.EntityFrameworkCoreIntegration.EntityFrameworkOutboxContextFactory`1.<>c__DisplayClass6_0`1.<<Se
+      --- End of stack trace from previous location ---
+         at MassTransit.EntityFrameworkCoreIntegration.EntityFrameworkOutboxContextFactory`1.Send[T](ConsumeContext`1 co
+         at MassTransit.Middleware.OutboxConsumeFilter`2.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTran
+         at MassTransit.Middleware.OutboxConsumeFilter`2.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTran
+         at MassTransit.Middleware.TeeFilter`1.<>c__DisplayClass5_0.<<Send>g__SendAsync|1>d.MoveNext() in /_/src/MassTra
+      --- End of stack trace from previous location ---
+         at MassTransit.Middleware.ConsumeContextOutputMessageTypeFilter`1.SendToOutput(IPipe`1 next, ConsumeContext`1 p
+         at MassTransit.Middleware.ConsumeContextOutputMessageTypeFilter`1.SendToOutput(IPipe`1 next, ConsumeContext`1 p
+         at MassTransit.Middleware.DeserializeFilter.Send(ReceiveContext context, IPipe`1 next) in /_/src/MassTransit/Mi
+         at MassTransit.Middleware.RescueFilter`2.MassTransit.IFilter<TContext>.Send(TContext context, IPipe`1 next) in
+info: TypedFaultDemo.TestFaultNotTypedMessageConsumer[0]
+      Consumed NOTTYPED FAULT
+dbug: MassTransit.Messages[0]
+      RECEIVE rabbitmq://127.0.0.1:54766/TestFaultNotTypedMessage 28a60000-9a3c-0005-583a-08dcf03a8285 MassTransit.Fault
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Consumed: 28a60000-9a3c-0005-583a-08dcf03a8285 10/19/2024 12:35:26
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Delivered: 28a60000-9a3c-0005-583a-08dcf03a8285 10/19/2024 12:35:26
+dbug: MassTransit.ReceiveTransport[0]
+      Outbox Completed: 28a60000-9a3c-0005-583a-08dcf03a8285 (3)
+Press any key to exit
